@@ -1,0 +1,19 @@
+{
+    "name": "mail7/mail7",
+    "description": "Official Mail7 email validation client - honest Valid / Not Valid / Unknown.",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://mail7.net",
+    "keywords": ["mail7", "email", "email-validation", "email-verification", "smtp", "disposable"],
+    "authors": [
+        { "name": "Mail7", "homepage": "https://mail7.net" }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": { "Mail7\\": "src/" }
+    }
+}

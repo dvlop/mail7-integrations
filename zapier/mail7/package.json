@@ -1,0 +1,21 @@
+{
+  "name": "mail7",
+  "version": "1.0.0",
+  "description": "Mail7 email validation for Zapier - honest Valid / Not Valid / Unknown.",
+  "main": "index.js",
+  "private": true,
+  "keywords": [
+    "zapier",
+    "mail7",
+    "email",
+    "email-validation"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18",
+    "npm": ">=5.6.0"
+  },
+  "dependencies": {
+    "zapier-platform-core": "^16.0.0"
+  }
+}

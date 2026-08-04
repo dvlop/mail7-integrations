@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+
+    <PackageId>Mail7</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Mail7</Authors>
+    <Company>Mail7</Company>
+    <Description>Official Mail7 email validation client - honest Valid / Not Valid / Unknown, so real people are never wrongly rejected.</Description>
+    <PackageTags>mail7;email;email-validation;email-verification;smtp;disposable</PackageTags>
+    <PackageProjectUrl>https://mail7.net</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/dvlop/mail7.net</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,39 @@
+{
+  "name": "mail7",
+  "version": "0.1.0",
+  "description": "Official Mail7 email validation client - honest Valid / Not Valid / Unknown.",
+  "keywords": [
+    "mail7",
+    "email",
+    "email-validation",
+    "email-verification",
+    "smtp",
+    "disposable"
+  ],
+  "license": "MIT",
+  "homepage": "https://mail7.net",
+  "author": {
+    "name": "Mail7",
+    "url": "https://mail7.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvlop/mail7.net.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.4"
+  }
+}

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mail7"
+version = "0.1.0"
+description = "Official Mail7 email validation client - honest Valid / Not Valid / Unknown."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+authors = [{ name = "Mail7" }]
+keywords = ["mail7", "email", "email-validation", "email-verification", "smtp", "disposable"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Communications :: Email",
+]
+
+[project.urls]
+Homepage = "https://mail7.net"
+Documentation = "https://mail7.net/api-docs.html"
+
+[tool.setuptools.packages.find]
+where = ["src"]

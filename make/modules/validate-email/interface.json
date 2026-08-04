@@ -1,0 +1,11 @@
+[
+    { "name": "email", "type": "text", "label": "Email" },
+    { "name": "status", "type": "text", "label": "Status", "help": "Valid, Not Valid, or Unknown." },
+    { "name": "valid", "type": "boolean", "label": "Valid", "help": "true / false / empty when Unknown." },
+    { "name": "formatValid", "type": "boolean", "label": "Format Valid" },
+    { "name": "mxValid", "type": "boolean", "label": "MX Valid" },
+    { "name": "smtpValid", "type": "boolean", "label": "SMTP Valid" },
+    { "name": "is_disposable", "type": "boolean", "label": "Is Disposable" },
+    { "name": "mx_servers", "type": "array", "label": "MX Servers", "spec": { "type": "text" } },
+    { "name": "details", "type": "text", "label": "Details" }
+]

@@ -1,0 +1,9 @@
+[
+    {
+        "name": "apiKey",
+        "type": "password",
+        "label": "API Key",
+        "required": false,
+        "help": "Optional. Raises your rate limit and monthly volume. Leave empty to use the free anonymous tier. Get a key at mail7.net."
+    }
+]

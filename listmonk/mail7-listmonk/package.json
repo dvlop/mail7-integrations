@@ -1,0 +1,21 @@
+{
+  "name": "mail7-listmonk",
+  "version": "0.1.0",
+  "description": "Validate a listmonk audience with Mail7 and blocklist undeliverable addresses - honest Valid / Not Valid / Unknown.",
+  "type": "module",
+  "bin": {
+    "mail7-listmonk": "index.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "listmonk",
+    "mail7",
+    "email",
+    "email-validation",
+    "list-cleaning"
+  ],
+  "homepage": "https://mail7.net",
+  "license": "MIT"
+}

@@ -1,0 +1,55 @@
+{
+  "name": "n8n-nodes-mail7",
+  "version": "0.1.0",
+  "description": "n8n community node for Mail7 email validation - honest Valid / Not Valid / Unknown, so real people are never wrongly rejected.",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "mail7",
+    "email",
+    "email-validation",
+    "email-verification",
+    "smtp",
+    "disposable"
+  ],
+  "license": "MIT",
+  "homepage": "https://mail7.net",
+  "author": {
+    "name": "Mail7",
+    "url": "https://mail7.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvlop/mail7.net.git"
+  },
+  "engines": {
+    "node": ">=18.10"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && copyfiles \"nodes/**/*.svg\" dist",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/Mail7Api.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Mail7/Mail7.node.js"
+    ]
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "copyfiles": "^2.4.1",
+    "n8n-workflow": "*",
+    "typescript": "^5.5.4"
+  }
+}

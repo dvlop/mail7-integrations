@@ -1,0 +1,16 @@
+{
+    "baseUrl": "https://mail7.net/api",
+    "headers": {
+        "X-API-Key": "{{if(connection.apiKey, connection.apiKey, omit())}}"
+    },
+    "response": {
+        "error": {
+            "message": "[{{statusCode}}] {{ifempty(body.detail, body.error)}}"
+        }
+    },
+    "log": {
+        "sanitize": [
+            "request.headers.x-api-key"
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "@pipedream/mail7",
+  "version": "0.0.1",
+  "description": "Pipedream components for Mail7 email validation - honest Valid / Not Valid / Unknown.",
+  "type": "module",
+  "keywords": [
+    "pipedream",
+    "mail7",
+    "email",
+    "email-validation",
+    "email-verification"
+  ],
+  "homepage": "https://mail7.net",
+  "license": "MIT",
+  "dependencies": {
+    "@pipedream/platform": "^3.0.0"
+  }
+}

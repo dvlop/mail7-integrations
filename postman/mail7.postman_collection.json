@@ -1,0 +1,105 @@
+{
+	"info": {
+		"name": "Mail7 Email Validation API",
+		"description": "Real-time email verification: format, MX, live SMTP and disposable detection.\n\n**Honest classification.** `status` is `Valid`, `Not Valid`, or `Unknown`. `valid` is `null` when an address could not be verified (catch-all, greylisting, disposable) - branch on `status`, and do not treat Unknown as invalid.\n\nAuth: the `X-API-Key` header is optional. Without it you use the free anonymous tier (rate-limited). Get a key at https://mail7.net.\n\nSet the `baseUrl` and `apiKey` collection variables before running.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Validate single email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" },
+					{ "key": "X-API-Key", "value": "{{apiKey}}", "description": "Optional. Leave empty for the free anonymous tier." }
+				],
+				"url": {
+					"raw": "{{baseUrl}}/validate-single",
+					"host": ["{{baseUrl}}"],
+					"path": ["validate-single"]
+				},
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"user@example.com\"\n}"
+				},
+				"description": "Validate one email address. Returns status (Valid/Not Valid/Unknown), valid (bool|null), formatValid, mxValid, smtpValid, mx_servers, is_disposable."
+			},
+			"response": [
+				{
+					"name": "Valid",
+					"originalRequest": {
+						"method": "POST",
+						"header": [{ "key": "Content-Type", "value": "application/json" }],
+						"url": { "raw": "{{baseUrl}}/validate-single", "host": ["{{baseUrl}}"], "path": ["validate-single"] },
+						"body": { "mode": "raw", "raw": "{\n  \"email\": \"postmaster@gmail.com\"\n}" }
+					},
+					"status": "OK",
+					"code": 200,
+					"header": [{ "key": "Content-Type", "value": "application/json" }],
+					"body": "{\n  \"email\": \"postmaster@gmail.com\",\n  \"valid\": true,\n  \"formatValid\": true,\n  \"mxValid\": true,\n  \"smtpValid\": true,\n  \"status\": \"Valid\",\n  \"error\": null,\n  \"details\": \"Email validation result: Valid - Email exists\",\n  \"mx_servers\": [\"gmail-smtp-in.l.google.com\"],\n  \"smtp_message\": \"Email exists\",\n  \"is_disposable\": false\n}",
+					"_postman_previewlanguage": "json"
+				},
+				{
+					"name": "Unknown (disposable)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [{ "key": "Content-Type", "value": "application/json" }],
+						"url": { "raw": "{{baseUrl}}/validate-single", "host": ["{{baseUrl}}"], "path": ["validate-single"] },
+						"body": { "mode": "raw", "raw": "{\n  \"email\": \"test@mailinator.com\"\n}" }
+					},
+					"status": "OK",
+					"code": 200,
+					"header": [{ "key": "Content-Type", "value": "application/json" }],
+					"body": "{\n  \"email\": \"test@mailinator.com\",\n  \"valid\": null,\n  \"formatValid\": true,\n  \"mxValid\": true,\n  \"smtpValid\": false,\n  \"status\": \"Unknown\",\n  \"is_disposable\": true\n}",
+					"_postman_previewlanguage": "json"
+				}
+			]
+		},
+		{
+			"name": "SPF check",
+			"request": {
+				"method": "GET",
+				"header": [{ "key": "X-API-Key", "value": "{{apiKey}}", "description": "Optional." }],
+				"url": {
+					"raw": "{{baseUrl}}/spf-check/gmail.com",
+					"host": ["{{baseUrl}}"],
+					"path": ["spf-check", "gmail.com"]
+				},
+				"description": "Analyze a domain's SPF record."
+			},
+			"response": []
+		},
+		{
+			"name": "Domain check",
+			"request": {
+				"method": "GET",
+				"header": [{ "key": "X-API-Key", "value": "{{apiKey}}", "description": "Optional." }],
+				"url": {
+					"raw": "{{baseUrl}}/domain-check/gmail.com",
+					"host": ["{{baseUrl}}"],
+					"path": ["domain-check", "gmail.com"]
+				},
+				"description": "Full mail-configuration check for a domain (MX, SPF, DKIM, DMARC, MTA-STS, TLS-RPT, DNSSEC, BIMI)."
+			},
+			"response": []
+		},
+		{
+			"name": "Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/health",
+					"host": ["{{baseUrl}}"],
+					"path": ["health"]
+				},
+				"description": "Service health check."
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{ "key": "baseUrl", "value": "https://mail7.net/api" },
+		{ "key": "apiKey", "value": "" }
+	]
+}

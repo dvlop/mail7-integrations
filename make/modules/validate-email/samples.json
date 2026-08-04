@@ -1,0 +1,11 @@
+{
+    "email": "user@example.com",
+    "valid": true,
+    "formatValid": true,
+    "mxValid": true,
+    "smtpValid": true,
+    "status": "Valid",
+    "is_disposable": false,
+    "mx_servers": ["gmail-smtp-in.l.google.com"],
+    "details": "Email validation result: Valid - Email exists"
+}

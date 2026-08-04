@@ -1,0 +1,7 @@
+{
+  "core": null,
+  "plugins": [
+    "./mail7-email-validation",
+    "https://downloads.wordpress.org/plugin/plugin-check.zip"
+  ]
+}

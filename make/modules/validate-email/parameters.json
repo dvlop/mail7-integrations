@@ -1,0 +1,9 @@
+[
+    {
+        "name": "email",
+        "type": "email",
+        "label": "Email",
+        "required": true,
+        "help": "The email address to validate."
+    }
+]

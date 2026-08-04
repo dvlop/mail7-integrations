@@ -1,0 +1,10 @@
+{
+    "url": "/health",
+    "method": "GET",
+    "response": {
+        "valid": {
+            "condition": "{{body.status = 'healthy'}}",
+            "message": "Could not reach the Mail7 API."
+        }
+    }
+}

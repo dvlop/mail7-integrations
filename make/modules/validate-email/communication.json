@@ -1,0 +1,13 @@
+{
+    "url": "/validate-single",
+    "method": "POST",
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": {
+        "email": "{{parameters.email}}"
+    },
+    "response": {
+        "output": "{{body}}"
+    }
+}

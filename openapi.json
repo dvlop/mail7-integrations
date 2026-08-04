@@ -1,0 +1,86 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Mail7 Email Validation",
+    "version": "1.0.0",
+    "description": "Real-time email verification via the Mail7 API: format, MX, live SMTP and disposable checks with an honest Valid / Not Valid / Unknown result. Unlike validators that force every address into valid/invalid, Mail7 returns Unknown when an address genuinely cannot be confirmed (catch-all, greylisting, disposable), so you never wrongly reject a real customer.",
+    "contact": { "name": "Mail7", "url": "https://mail7.net" }
+  },
+  "servers": [
+    { "url": "https://mail7.net/api", "description": "Mail7 production" }
+  ],
+  "paths": {
+    "/validate-single": {
+      "post": {
+        "operationId": "validateSingle",
+        "summary": "Validate a single email address",
+        "description": "Checks one email address and returns an honest verdict.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ValidateRequest" },
+              "example": { "email": "user@example.com" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Validation result",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ValidationResult" },
+                "example": {
+                  "email": "user@example.com",
+                  "valid": true,
+                  "formatValid": true,
+                  "mxValid": true,
+                  "smtpValid": true,
+                  "status": "Valid",
+                  "error": null,
+                  "details": "Email validation result: Valid - Email exists",
+                  "mx_servers": ["gmail-smtp-in.l.google.com"],
+                  "smtp_message": "Email exists",
+                  "is_disposable": false
+                }
+              }
+            }
+          },
+          "400": { "description": "Missing or empty email" },
+          "429": { "description": "Rate limit exceeded" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ValidateRequest": {
+        "type": "object",
+        "required": ["email"],
+        "properties": {
+          "email": { "type": "string", "description": "The email address to validate", "example": "user@example.com" }
+        }
+      },
+      "ValidationResult": {
+        "type": "object",
+        "properties": {
+          "email": { "type": "string" },
+          "valid": {
+            "type": "boolean",
+            "nullable": true,
+            "description": "true = deliverable, false = does not exist, null = Unknown (could not be verified; see status). Do not treat Unknown as invalid."
+          },
+          "formatValid": { "type": "boolean" },
+          "mxValid": { "type": "boolean" },
+          "smtpValid": { "type": "boolean" },
+          "status": { "type": "string", "enum": ["Valid", "Not Valid", "Unknown"] },
+          "error": { "type": "string", "nullable": true },
+          "details": { "type": "string", "nullable": true },
+          "mx_servers": { "type": "array", "items": { "type": "string" }, "nullable": true },
+          "smtp_message": { "type": "string", "nullable": true },
+          "is_disposable": { "type": "boolean", "nullable": true, "description": "true for throwaway/temporary addresses" }
+        }
+      }
+    }
+  }
+}

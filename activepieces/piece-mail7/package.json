@@ -1,0 +1,30 @@
+{
+  "name": "@activepieces/piece-mail7",
+  "version": "0.0.1",
+  "description": "Mail7 email validation piece for Activepieces - honest Valid / Not Valid / Unknown.",
+  "keywords": [
+    "activepieces",
+    "mail7",
+    "email",
+    "email-validation",
+    "email-verification"
+  ],
+  "license": "MIT",
+  "homepage": "https://mail7.net",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@activepieces/pieces-common": "*",
+    "@activepieces/pieces-framework": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.4"
+  }
+}
