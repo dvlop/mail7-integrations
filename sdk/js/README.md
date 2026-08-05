@@ -1,13 +1,13 @@
-# mail7 (JavaScript / TypeScript)
+# mail7net (JavaScript / TypeScript)
 
 Official [Mail7](https://mail7.net) email validation client.
 
 ```bash
-npm install mail7
+npm install mail7net
 ```
 
 ```ts
-import { Mail7 } from 'mail7';
+import { Mail7 } from 'mail7net';
 
 const mail7 = new Mail7({ apiKey: process.env.MAIL7_API_KEY }); // apiKey optional
 

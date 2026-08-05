@@ -10,7 +10,7 @@ greylisting, disposable) is never wrongly rejected as invalid.
 
 | Language | Folder | Package |
 |----------|--------|---------|
-| JavaScript / TypeScript | [`sdk/js`](sdk/js) | npm `mail7` |
+| JavaScript / TypeScript | [`sdk/js`](sdk/js) | npm `mail7net` |
 | Python | [`sdk/python`](sdk/python) | PyPI `mail7` |
 | PHP | [`sdk/php`](sdk/php) | Packagist `mail7/mail7` |
 | .NET | [`sdk/dotnet`](sdk/dotnet) | NuGet `Mail7` |
