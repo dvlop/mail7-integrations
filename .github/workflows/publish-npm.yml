@@ -1,0 +1,75 @@
+name: Publish npm package
+
+# Publishes one of this repo's npm packages using npm trusted publishing (OIDC).
+# No tokens live anywhere: npm verifies the workflow's identity through GitHub's
+# OIDC provider, and signs a provenance attestation linking the tarball to this
+# commit. Each package must be registered as a trusted publisher on npmjs.com
+# (Package -> Settings -> Trusted publishing) pointing at this repo and this
+# workflow filename.
+#
+# Publishing is deliberately manual: pick the package, bump its version first.
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: Package directory to publish
+        required: true
+        type: choice
+        options:
+          - mcp
+          - sdk/js
+          - n8n/n8n-nodes-mail7
+      dry_run:
+        description: Dry run (build and pack, publish nothing)
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  id-token: write # OIDC token for trusted publishing
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+          package-manager-cache: false # never cache in a release build
+
+      - name: Check npm supports trusted publishing
+        run: |
+          have=$(npm --version)
+          need=11.5.1
+          echo "npm $have (need >= $need)"
+          if [ "$(printf '%s\n%s\n' "$need" "$have" | sort -V | head -1)" != "$need" ]; then
+            echo "::error::npm $need or later is required for trusted publishing, this runner has $have"
+            exit 1
+          fi
+
+      - name: Install dependencies
+        working-directory: ${{ inputs.package }}
+        # --ignore-scripts keeps a dependency's install hooks from running in a
+        # workflow that holds a publish-capable OIDC token. It is also required
+        # for the n8n node, whose transitive isolated-vm fails to build.
+        run: npm install --ignore-scripts --no-audit --no-fund
+
+      - name: Build
+        working-directory: ${{ inputs.package }}
+        run: npm run build --if-present
+
+      - name: Show what will be published
+        working-directory: ${{ inputs.package }}
+        run: npm pack --dry-run
+
+      - name: Publish
+        if: ${{ !inputs.dry_run }}
+        working-directory: ${{ inputs.package }}
+        # No NODE_AUTH_TOKEN: the OIDC exchange authenticates this run, and
+        # provenance is attached automatically.
+        run: npm publish --access public
