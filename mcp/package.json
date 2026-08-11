@@ -1,7 +1,8 @@
 {
   "name": "mail7-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Mail7 MCP server - email validation, SPF and full domain mail-config checks as tools for AI assistants.",
+  "mcpName": "net.mail7/email-validation",
   "keywords": [
     "mcp",
     "modelcontextprotocol",

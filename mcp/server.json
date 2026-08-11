@@ -1,0 +1,39 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "net.mail7/email-validation",
+  "title": "Mail7 Email Validation",
+  "description": "Verify email addresses, clean lists, and audit a domain SPF, DKIM, DMARC and MX setup.",
+  "version": "0.1.1",
+  "websiteUrl": "https://mail7.net/integrations/mcp/",
+  "repository": {
+    "url": "https://github.com/dvlop/mail7-integrations",
+    "source": "github",
+    "subfolder": "mcp"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "mail7-mcp",
+      "version": "0.1.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "MAIL7_API_KEY",
+          "description": "Mail7 API key. Optional, but anonymous callers are limited to 5 checks per minute and a 25-address bulk sample. Get one at https://mail7.net/account/",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "MAIL7_BASE_URL",
+          "description": "Override the API endpoint. Defaults to https://mail7.net/api",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}
