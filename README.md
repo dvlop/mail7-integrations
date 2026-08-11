@@ -19,7 +19,7 @@ greylisting, disposable) is never wrongly rejected as invalid.
 
 | Folder | Package | What it does |
 |--------|---------|--------------|
-| [`mcp`](mcp) | npm `mail7-mcp` | MCP server: `validate_email`, `validate_emails`, `check_domain`, `check_spf` for Claude, Cursor, Windsurf, Cline and any other MCP client |
+| [`mail7-mcp`](https://github.com/dvlop/mail7-mcp) | npm `mail7-mcp` | MCP server: `validate_email`, `validate_emails`, `check_domain`, `check_spf` for Claude, Cursor, Windsurf, Cline and any other MCP client |
 
 ## Plugins, apps & scripts
 
