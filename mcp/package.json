@@ -1,0 +1,50 @@
+{
+  "name": "mail7-mcp",
+  "version": "0.1.0",
+  "description": "Mail7 MCP server - email validation, SPF and full domain mail-config checks as tools for AI assistants.",
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "mail7",
+    "email",
+    "email-validation",
+    "email-verification",
+    "spf",
+    "dmarc"
+  ],
+  "license": "MIT",
+  "homepage": "https://mail7.net/integrations/mcp/",
+  "author": {
+    "name": "Mail7",
+    "url": "https://mail7.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvlop/mail7-integrations.git",
+    "directory": "mcp"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mail7-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.4"
+  }
+}

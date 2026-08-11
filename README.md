@@ -15,11 +15,19 @@ greylisting, disposable) is never wrongly rejected as invalid.
 | PHP | [`sdk/php`](sdk/php) | Packagist `mail7/mail7` |
 | .NET | [`sdk/dotnet`](sdk/dotnet) | NuGet `Mail7` |
 
+## AI assistants
+
+| Folder | Package | What it does |
+|--------|---------|--------------|
+| [`mcp`](mcp) | npm `mail7-mcp` | MCP server: `validate_email`, `validate_emails`, `check_domain`, `check_spf` for Claude, Cursor, Windsurf, Cline and any other MCP client |
+
 ## Plugins, apps & scripts
 
 | Platform | Folder | What it does |
 |----------|--------|--------------|
 | WordPress | [`wordpress`](wordpress) | Real-time validation on registration, comments, Contact Form 7, WPForms |
+| Gravity Forms | [`gravity-forms`](gravity-forms) | Validate email fields via the Gravity Forms Add-On Framework |
+| Fluent Forms | [`fluent-forms`](fluent-forms) | Validate email fields on submit |
 | MailWizz | [`mailwizz`](mailwizz) | Validate subscribers on subscribe/import |
 | phpList | [`phplist`](phplist) | Validate on subscribe/import (`validateEmailAddress` hook) |
 | Mautic | [`mautic`](mautic) | Validate contacts; Not Valid → Do Not Contact |
@@ -31,6 +39,7 @@ greylisting, disposable) is never wrongly rejected as invalid.
 | Zapier | [`zapier`](zapier) | Platform app (Validate Email action) |
 | Make (Integromat) | [`make`](make) | Custom app config blocks |
 | Postman | [`postman`](postman) | Public API collection |
+| Pabbly Connect | [`pabbly`](pabbly) | Recipe for the built-in API by Pabbly module |
 
 ## API
 
